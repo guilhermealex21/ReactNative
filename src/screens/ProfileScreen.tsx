@@ -5,6 +5,7 @@ export default function ProfileScreen({ navigation }: any) {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [idade, setIdade] = useState('');
+  const [phone, setPhone] = useState('');
 
   useEffect(() => {
     console.log('ProfileScreen montada - Tela de Cadastro aberta');
@@ -70,6 +71,18 @@ export default function ProfileScreen({ navigation }: any) {
               onChangeText={setIdade}
               placeholderTextColor="#bbb"
               keyboardType="numeric"
+            />
+          </View>
+
+          <View style={styles.inputGroup}>
+            <Text style={styles.label}>Telefone</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Digite seu telefone"
+              value={phone}
+              onChangeText={setPhone}
+              placeholderTextColor="#bbb"
+              keyboardType="phone-pad"
             />
           </View>
 
