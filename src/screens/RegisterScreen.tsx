@@ -282,8 +282,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: spacing.sm,
     gap: spacing.xs,
-    alignSelf: isAndroid ? 'center' : undefined,
-    width: isAndroid ? Math.min(300, screenWidth * 0.8) : '100%',
+    width: '100%',
   },
   registerButton: {
     backgroundColor: colors.primary,

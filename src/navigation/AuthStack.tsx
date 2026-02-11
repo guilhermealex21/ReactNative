@@ -1,6 +1,6 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from '../screens/HomeScreen';
+import HomeScreenPublic from '../screens/HomeScreenPublic';
 import LoginSignupScreen from '../screens/LoginSignupScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
@@ -21,16 +21,14 @@ const Stack = createNativeStackNavigator();
 export default function AuthStack() {
   return (
     <Stack.Navigator
+      id="AuthStack"
       screenOptions={{
         headerShown: false,
       }}
     >
       <Stack.Screen 
         name="Home" 
-        component={HomeScreen}
-        options={{
-          animationEnabled: false,
-        }}
+        component={HomeScreenPublic}
       />
       <Stack.Screen 
         name="LoginSignup" 

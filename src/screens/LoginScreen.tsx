@@ -236,6 +236,7 @@ const styles = StyleSheet.create({
     color: '#333',
     textAlign: 'center',
     marginBottom: 8,
+  },
   forgotPasswordButton: {
     marginTop: 12,
     alignItems: 'center',
@@ -244,7 +245,6 @@ const styles = StyleSheet.create({
     color: '#007AFF',
     fontSize: 14,
     fontWeight: '600',
-  },
   },
   uid: {
     fontSize: 12,

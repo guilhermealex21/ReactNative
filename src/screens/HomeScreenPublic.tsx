@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
-import { MaterialIcons, Feather } from '@expo/vector-icons';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
 import { theme, spacing, fontSizes, colors, screenWidth, responsiveScale, isWeb, isAndroid } from '../config/theme';
 
 /**
- * HomeScreen - Tela Inicial da Aplicação Autenticada
+ * HomeScreenPublic - Tela Inicial Pública (não autenticada)
  * 
- * Esta é uma rota privada que só é acessível para usuários autenticados.
- * Se o usuário fizer logout, será automaticamente redirecionado para AuthStack.
+ * Esta é uma rota pública acessível para usuários NÃO autenticados.
+ * Mostra botões para Login e Cadastro.
  */
-export default function HomeScreen({ navigation }: any) {
+export default function HomeScreenPublic({ navigation }: any) {
   useEffect(() => {
-    console.log('HomeScreen montado');
+    console.log('HomeScreenPublic montado');
     return () => {
-      console.log('HomeScreen desmontado');
+      console.log('HomeScreenPublic desmontado');
     };
   }, []);
 
@@ -52,25 +52,25 @@ export default function HomeScreen({ navigation }: any) {
           <MaterialIcons name="home" size={responsiveScale(40)} color={colors.white} />
         </View>
         <Text style={styles.headerTitle}>Bem-vindo!</Text>
-        <Text style={styles.headerSubtitle}>Escolha uma opção abaixo</Text>
+        <Text style={styles.headerSubtitle}>Escolha uma opção para começar</Text>
       </View>
 
       {/* Menu Items */}
       <View style={styles.menuContainer}>
         {renderMenuItem(
-          <MaterialIcons name="info" size={responsiveScale(28)} color={colors.white} />,
-          'Detalhes',
-          'Veja informações do app',
-          () => navigation.navigate('Details'),
-          '#4A90E2'
+          <MaterialIcons name="login" size={responsiveScale(28)} color={colors.white} />,
+          'Entrar',
+          'Faça login na sua conta',
+          () => navigation.navigate('LoginSignup'),
+          '#007AFF'
         )}
 
         {renderMenuItem(
-          <MaterialIcons name="person" size={responsiveScale(28)} color={colors.white} />,
-          'Minha Conta',
-          'Visualize seu perfil e faça logout',
-          () => navigation.navigate('Login'),
-          '#FF6B6B'
+          <MaterialIcons name="person-add" size={responsiveScale(28)} color={colors.white} />,
+          'Cadastro',
+          'Crie uma nova conta',
+          () => navigation.navigate('Register'),
+          '#34C759'
         )}
       </View>
 
@@ -78,7 +78,7 @@ export default function HomeScreen({ navigation }: any) {
       <View style={styles.footerContainer}>
         <MaterialIcons name="security" size={responsiveScale(20)} color={colors.primary} />
         <Text style={styles.footerText}>
-          Você está autenticado e protegido
+          Seus dados são protegidos pelo Firebase
         </Text>
       </View>
     </ScrollView>

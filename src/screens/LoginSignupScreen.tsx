@@ -22,11 +22,6 @@ export default function LoginSignupScreen({ navigation }: any) {
       return;
     }
 
-    if (password !== confirmPassword) {
-      Alert.alert('Erro', 'As senhas não conferem');
-      return;
-    }
-
     setLoading(true);
     try {
       await login(email, password);
@@ -237,8 +232,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: spacing.sm,
     gap: spacing.xs,
-    alignSelf: isAndroid ? 'center' : undefined,
-    width: isAndroid ? Math.min(300, screenWidth * 0.8) : '100%',
+    width: '100%',
   },
   loginButton: {
     backgroundColor: colors.primary,

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
-import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 import { theme, spacing, fontSizes, colors, responsiveScale, isWeb, screenWidth, isAndroid } from '../config/theme';
 
 export default function DetailsScreen({ navigation }: any) {
@@ -69,7 +69,7 @@ export default function DetailsScreen({ navigation }: any) {
         
         <View style={styles.techGrid}>
           <View style={styles.techItem}>
-            <FontAwesome name="react" size={responsiveScale(28)} color={colors.primary} />
+            <MaterialIcons name="code" size={responsiveScale(28)} color={colors.primary} />
             <Text style={styles.techName}>React Native</Text>
           </View>
           
@@ -250,8 +250,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     borderRadius: responsiveScale(10),
     gap: spacing.xs,
-    width: isWeb ? Math.min(500, screenWidth * 0.9) : isAndroid ? Math.min(300, screenWidth * 0.8) : '100%',
-    alignSelf: isWeb ? 'center' : isAndroid ? 'center' : undefined,
+    width: isWeb ? Math.min(500, screenWidth * 0.9) : isAndroid ? '100%' : '100%',
+    alignSelf: isWeb ? 'center' : undefined,
   },
   backButtonText: {
     fontSize: fontSizes.sm,
