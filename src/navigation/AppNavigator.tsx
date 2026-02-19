@@ -5,6 +5,7 @@ import { onAuthChange, AuthUser } from '../services/authService';
 import AuthStack from './AuthStack';
 import AppStack from './AppStack';
 import { colors } from '../config/theme';
+import {useAuth} from '../context/AuthContext';
 
 /**
  * AppNavigator - Navegação Principal
