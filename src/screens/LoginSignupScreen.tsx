@@ -25,19 +25,16 @@ export default function LoginSignupScreen({ navigation }: any) {
     setLoading(true);
     try {
       await login(email, password);
-      Alert.alert('Sucesso', 'Login realizado com sucesso!');
+      console.log('✅ Login bem-sucedido! AppNavigator deve alternar para AppStack automaticamente');
+      // Limpar campos
       setEmail('');
       setPassword('');
       setConfirmPassword('');
-
-      // Aguarda o AppNavigator renderizar AppStack (após onAuthStateChanged dispara)
-      // e então navega para Details
-      setTimeout(() => {
-        navigation.navigate('Details');
-      }, 1000);
+      
+      // Não navegar manualmente - deixar AppNavigator fazer isso automaticamente
+      // quando o estado de autenticação mudar
     } catch (error: any) {
       Alert.alert('Erro', error?.message || 'Falha ao fazer login');
-    } finally {
       setLoading(false);
     }
   };

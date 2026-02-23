@@ -60,7 +60,7 @@ export default function RegisterScreen({ navigation }: any) {
         phone,
       });
 
-      Alert.alert('Sucesso', 'Conta criada com sucesso! Bem-vindo ao app!');
+      console.log('✅ Registro bem-sucedido! AppNavigator deve alternar para AppStack automaticamente');
 
       setName('');
       setEmail('');
@@ -69,11 +69,8 @@ export default function RegisterScreen({ navigation }: any) {
       setPassword('');
       setConfirmPassword('');
 
-      // Aguarda o AppNavigator renderizar AppStack (após onAuthStateChanged dispara)
-      // e então navega para Details
-      setTimeout(() => {
-        navigation.navigate('Details');
-      }, 1000);
+      // Não navegar manualmente - deixar AppNavigator fazer isso automaticamente
+      // quando o estado de autenticação mudar
     } catch (error: any) {
       const errorMsg = error?.message || 'Erro desconhecido';
       console.error('❌ Erro ao registrar usuário:', errorMsg);

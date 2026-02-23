@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import { onAuthStateChanged, signInWithEmailAndPassword, singOut, User } from 'firebase/auth';
+import { onAuthStateChanged, signInWithEmailAndPassword, signOut, User } from 'firebase/auth';
 import { auth } from '../config/firebaseConfig';
 
 interface AuthContextData {
@@ -16,12 +16,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        console.log('🔐 AuthProvider iniciado - Configurando listener de autenticação');
         const unsubscribe = onAuthStateChanged(auth, (userLogged) => {
+            console.log('🔐 Mudança de autenticação detectada:', userLogged?.email || 'sem usuário');
             setUser(userLogged);
             setLoading(false);
         });
 
-        return () => unsubscribe();
+        return () => {
+            console.log('🔐 AuthProvider desmontado');
+            unsubscribe();
+        };
     }, []);
 
     async function login(email: string, password: string) {
@@ -29,7 +34,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
     
     async function logout() {
-        await singOut(auth);
+        await signOut(auth);
     }
 
     return (
